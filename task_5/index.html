@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task 5. Form</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <script>
+        function checkLength() {
+            var form = document.getElementsByName('login').item(0);
+            var user = form.elements['name'].value.length;
+            var password = form.elements['password'].value.length;
+            var btn = document.getElementsByName('btn').item(0);
+
+            if (user < 3 || password < 3) {
+                btn.disabled = true;
+            } else {
+                btn.disabled = false;
+            }
+        }
+    </script>
+    </head>
+    <body>
+    <div class="input-container">
+        <form name = 'login' action="login.php" method="POST" enctype="multipart/form-data" onsubmit="return checkLength();">
+            <h2 align="center"> Log In</h2>
+            <input
+                type="text"
+                id="input"
+                placeholder="Login"
+                name="name"
+                onkeyup="checkLength();"
+            />
+            <br>
+            <input
+                type="password"
+                id="input"
+                placeholder="Password"
+                name="password"
+                onkeyup="checkLength();"
+            />
+            <br>
+            <button name='btn' type="submit" disabled="true" href="" class="login">Log in</button>
+        </form>
+    </div>
+  </body>
+</html>
